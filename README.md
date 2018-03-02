@@ -4,28 +4,50 @@
 | Purpose:    | Simulating fMRI signal for different hemodynamic response functions (HRFs)        |
 | Contact:    | wo222@cam.ac.uk                                                                   |
 
-The fMRI time series are simulated given a set of options the user can specify. Afterwards, the models are estimated and significance of the stimulus evoked response is assessed. There are 6 HRF models available: (1) canonical double-gamma, (2-3) extension by its derivatives, (4) nonlinear double gamma, (5) inverse logit and (6) finite impulse response.
+The fMRI time series are simulated given a set of options the user can specify. Afterwards, the models are estimated and significance of the stimulus evoked response is assessed. There are 6 HRF models available:
 
+1. canonical double gamma
+2. canonical double gamma with first derivative
+3. canonical double gamma with first and second derivatives
+4. nonlinear double gamma
+5. inverse logit
+6. finite impulse response
 
-(1) HRF_sim_est_inference.R
-is the interface
+Software
+==============
 
-(2) HRF_est_inference.R
-estimates the model parameters and performs inference
+For the R computations I used the following packages (available from CRAN):
 
-(3) HRF_sim.R
-simulates fMRI time series given a set of options: repetition time (TR), experiment paradigm/design, HRF model, CNR, AR1
-
-(4) HRF_basic_functions.R
-auxiliary functions for the above codes
-
-(5) HRF_par_dist.R
-makes figures showing the distributions of the parameter estimates
-
-(6) HRF_FSL_gamma2_FIR.R
-performs analysis in FSL for both the canonical model with the 1st derivative and for the finite impulse response model
-
-
-You need the following packages in R: AnalyzeFMRI, oro.nifti, parallel, reshape2, ggplot2, GenSA, numDeriv, latticeExtra, gridExtra
+- AnalyzeFMRI
+- GenSA
+- ggplot2
+- gridExtra
+- latticeExtra
+- numDeriv
+- oro.nifti
+- parallel
+- reshape2
 
 The codes were tested in R 3.2.2 on Linux.
+
+Repository contents
+==============
+
+- `HRF_sim_est_inference.R`
+
+  is the interface
+- `HRF_est_inference.R`
+
+  estimates the model parameters and performs inference
+- `HRF_sim.R`
+
+  simulates fMRI time series given a set of options: repetition time (TR), experimental paradigm/design, HRF model, CNR, AR1
+- `HRF_basic_functions.R`
+
+  auxiliary functions for the above codes
+- `HRF_par_dist.R`
+
+  makes figures showing the distributions of the parameter estimates
+- `HRF_FSL_gamma2_FIR.R`
+ 
+  performs analysis in FSL for both the canonical model with the 1st derivative and for the finite impulse response model
